@@ -2,7 +2,8 @@
 
 **Built for Hack2skill PromptWars — Challenge 06 (Urban Air Quality Assistant)**
 
-> **Live Demo:** *(Paste your GitHub Pages URL here, e.g., `https://github.io`)*
+> **Live Demo:** *([Paste your GitHub Pages URL here, e.g., `https://github.io`](https://chaturvedimitali20-a11y.github.io/vayumitra-air-assistant/
+))*
 
 VayuMitra helps families and communities navigate severe winter smog and urban air pollution through hyper-localized indoor air quality hacks, low-emission daily routine swaps, and quantified health/carbon impact metrics.
 
