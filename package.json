@@ -1,0 +1,10 @@
+{
+  "name": "vayumitra-air-assistant",
+  "version": "1.1.0",
+  "description": "GenAI-powered Urban Air Quality & Sustainability Assistant",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/app.test.js"
+  },
+  "license": "MIT"
+}
