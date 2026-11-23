@@ -2,6 +2,9 @@
 
 **Built for Hack2skill PromptWars — Challenge 06 (Urban Air Quality Assistant)**
 
+> **Live Demo:** [https://chaturvedimitali20-a11y.github.io/vayumitra-air-assistant/](https://chaturvedimitali20-a11y.github.io/vayumitra-air-assistant/)
+
+
 VayuMitra helps families and communities navigate severe winter smog and urban air pollution through hyper-localized indoor air quality hacks, low-emission daily routine swaps, and quantified health/carbon impact metrics.
 
 ---
@@ -24,9 +27,16 @@ VayuMitra helps families and communities navigate severe winter smog and urban a
 ---
 
 ## 🚀 How to Run Locally & Run Tests
-1. Clone this repository and open `index.html` in any modern browser (or use VS Code Live Server).
-2. *(Optional)* Enter a free Google Gemini API key from [Google AI Studio](https://google.com) or click **Generate** immediately to run in Demo Simulation Mode.
-3. Run the automated unit test suite (requires Node.js 18+):
+Because this app uses ES6 JavaScript modules (`type="module"`), run it via a local HTTP server rather than opening `index.html` directly via `file://`:
+
+1. Clone this repository and open a terminal inside the project folder.
+2. Start a lightweight local server using Python (or VS Code Live Server):
+   ```bash
+   python -m http.server 8000
+   ```
+3. Open **[http://localhost:8000](http://localhost:8000)** in your browser.
+4. *(Optional)* Enter a free Google Gemini API key from [Google AI Studio](https://google.com) for live AI generation, or click **Generate** immediately to run in Demo Simulation Mode.
+5. Run the automated unit test suite (requires Node.js 18+):
    ```bash
    node --test tests/app.test.js
    ```
