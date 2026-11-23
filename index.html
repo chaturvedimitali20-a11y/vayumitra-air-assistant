@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VayuMitra: GenAI-powered Urban Air Quality & Low-Emission Lifestyle Assistant for winter smog." />
+  <title>VayuMitra | Urban Air Quality & Sustainability Assistant</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <header class="app-header" role="banner">
+    <div class="container">
+      <h1>🌬️ VayuMitra</h1>
+      <p class="subtitle">Hyper-Local GenAI Smog Navigation &amp; Low-Emission Action Planner</p>
+    </div>
+  </header>
+
+  <main id="main-content" class="container" role="main">
+    <!-- Step 1: Configuration & Security Banner -->
+    <section class="card config-card" aria-labelledby="api-heading">
+      <div class="card-header">
+        <h2 id="api-heading">1. GenAI Engine Configuration</h2>
+        <span class="badge" id="mode-badge">Demo Simulation Ready</span>
+      </div>
+      <p class="help-text">
+        Enter your Google Gemini API key for live AI reasoning, or leave blank to test with our built-in localized simulation engine. Keys stay strictly in your browser memory.
+      </p>
+      <div class="form-row">
+        <div class="form-group flex-grow">
+          <label for="api-key">Google Gemini API Key (Optional)</label>
+          <input
+            type="password"
+            id="api-key"
+            placeholder="AIzaSy... (Leave blank for instant Demo Mode)"
+            autocomplete="off"
+            aria-describedby="key-security-note"
+          />
+          <small id="key-security-note">🔒 Zero-storage policy: Never saved to disk or transmitted to third parties.</small>
+        </div>
+        <button type="button" id="preset-ncr-btn" class="btn btn-secondary" aria-label="Load Greater Noida Severe Smog Preset">
+          ⚡ Load Severe Smog Preset
+        </button>
+      </div>
+    </section>
+
+    <!-- Step 2: Household & Location Profile -->
+    <section class="card" aria-labelledby="profile-heading">
+      <h2 id="profile-heading">2. Location &amp; Household Context</h2>
+      <form id="air-form" novalidate>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="location">City / Sector / Neighborhood *</label>
+            <input type="text" id="location" name="location" value="Greater Noida, Sector 150" required aria-required="true" />
+          </div>
+
+          <div class="form-group">
+            <label for="aqi">Current Local AQI *</label>
+            <input type="number" id="aqi" name="aqi" min="1" max="999" value="428" required aria-required="true" />
+            <small id="aqi-category" class="aqi-tag severe" aria-live="polite">Severe (401–500)</small>
+          </div>
+
+          <div class="form-group">
+            <label for="pollutant">Primary Pollutant</label>
+            <select id="pollutant" name="pollutant">
+              <option value="PM2.5" selected>PM2.5 (Fine Particulate Smog)</option>
+              <option value="PM10">PM10 (Road &amp; Construction Dust)</option>
+              <option value="NO2">NO2 (Vehicular Emissions)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="home-type">Housing Type</label>
+            <select id="home-type" name="home-type">
+              <option value="High-rise apartment (above 6th floor)">High-rise Apartment (Above 6th Floor)</option>
+              <option value="Low-rise flat or ground floor">Low-rise Flat / Ground Floor</option>
+              <option value="Independent house with courtyard">Independent House</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="vulnerable">Vulnerable Family Members</label>
+            <select id="vulnerable" name="vulnerable">
+              <option value="Toddler and elderly grandparent with asthma">Toddler &amp; Elderly (Asthma/Respiratory)</option>
+              <option value="Children school-going">School-going Children</option>
+              <option value="Healthy adults only">Healthy Adults Only</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Mitigation Budget Mode</label>
+            <select id="budget" name="budget">
+              <option value="Zero/Low-Cost DIY Hacks Only">Zero / Low-Cost DIY Hacks (Jugaad Mode)</option>
+              <option value="Moderate (Air purifier + basic masks)">Moderate (Purifier + N95 Masks)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="routine">Daily Commute &amp; Lifestyle Habits *</label>
+          <input
+            type="text"
+            id="routine"
+            name="routine"
+            value="14 km daily petrol car commute, morning walk at 7 AM, gas stove cooking"
+            required
+            aria-required="true"
+          />
+        </div>
+
+        <div id="form-error" class="error-banner" role="alert" hidden></div>
+
+        <button type="submit" id="generate-btn" class="btn btn-primary">
+          ✨ Generate Personalized Action &amp; Impact Plan
+        </button>
+      </form>
+    </section>
+
+    <!-- Step 3: Output & Quantified Impact -->
+    <section id="results-section" class="card results-card" aria-labelledby="results-heading" aria-live="polite" hidden>
+      <div class="card-header">
+        <h2 id="results-heading">3. Your Tailored Smog Action &amp; Impact Brief</h2>
+        <span class="badge badge-success" id="source-indicator">Generated via Gemini AI</span>
+      </div>
+
+      <!-- Quantified Impact Metrics Bar -->
+      <div class="impact-grid" role="region" aria-label="Estimated Daily Impact Summary">
+        <div class="metric-box">
+          <span class="metric-value" id="metric-exposure">-38%</span>
+          <span class="metric-label">Indoor PM2.5 Exposure</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value" id="metric-co2">3.2 kg</span>
+          <span class="metric-label">CO₂ Emissions Saved Today</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value" id="metric-window">2:15 PM</span>
+          <span class="metric-label">Safe Ventilation Window</span>
+        </div>
+      </div>
+
+      <div id="ai-output" class="ai-content"></div>
+
+      <!-- Community Ripple Simulator -->
+      <div class="ripple-box">
+        <h3>🏘️ Community Ripple Effect</h3>
+        <p id="community-impact-text"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer" role="contentinfo">
+    <div class="container">
+      <p>Built for Hack2skill PromptWars Challenge 06 • Designed with WCAG Accessibility &amp; Zero-Leak Security.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
+
+<!--http://localhost:8000-->
