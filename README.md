@@ -4,39 +4,20 @@
 
 > **Live Demo:** [https://chaturvedimitali20-a11y.github.io/vayumitra-air-assistant/](https://chaturvedimitali20-a11y.github.io/vayumitra-air-assistant/)
 
-
-VayuMitra helps families and communities navigate severe winter smog and urban air pollution through hyper-localized indoor air quality hacks, low-emission daily routine swaps, and quantified health/carbon impact metrics.
-
----
-
-## ✨ Key Features
-- **Hyper-Local Smog Reasoning:** Tailors advice to city/sector, live AQI level, primary pollutant (`PM2.5`, `PM10`, `NO2`), housing floor/type, and family vulnerabilities (toddlers, elderly, asthma).
-- **Zero/Low-Cost DIY ("Jugaad") Mode:** Recommends practical, zero-budget physics hacks (inversion-window ventilation timing, wet-mopping vs. dry sweeping, draft sealing) alongside sustainable commute swaps.
-- **Quantified Personal & Community Impact:** Calculates daily indoor particulate exposure reduction (`%`), avoided `CO₂` emissions (`kg`), safe ventilation windows, and 500-household community ripple effects.
-- **Dual Execution Engine:** Powered by **Google Gemini 2.5 Flash** with an instant built-in simulation fallback for zero-latency offline/evaluator testing.
+VayuMitra is a GenAI-powered web application designed to help urban families manage severe winter smog and air pollution through localized air quality guidance, DIY indoor health hacks, and quantified environmental impact metrics.
 
 ---
 
-## 🛡️ Architecture & Evaluation Highlights
-1. **Code Quality:** Modular ES6 architecture separating pure business logic (`app.js`), semantic markup (`index.html`), and responsive design tokens (`style.css`).
-2. **Security:** Zero hardcoded secrets; client-side memory-only API key handling (`autocomplete="off"`) and strict input sanitization against XSS injection.
-3. **Efficiency:** Zero heavy framework dependencies (< 35 KB total repository size), instant load times, and single-call structured prompt generation.
-4. **Testing:** Automated unit test suite (`tests/app.test.js`) powered by Node's native test runner (`node --test`).
-5. **Accessibility:** WCAG AA high-contrast palette, skip-to-content link, semantic landmarks (`<header>`, `<main>`, `<section>`, `<footer>`), ARIA live regions, and visible keyboard focus indicators.
+## ✨ Key Features & Architecture
+- **Hyper-Local Smog Reasoning:** Tailors real-time advice based on location, live AQI metrics, primary pollutants (`PM2.5`, `PM10`, `NO2`), housing types, and household vulnerabilities.
+- **Dual Execution Engine:** Combines Google Gemini 2.5 Flash API integration with in-memory caching and a dynamic fallback simulation engine.
+- **Modular Codebase:** Separates pure domain logic (`src/airEngine.js`), UI orchestration (`app.js`), semantic markup (`index.html`), and high-contrast styling (`style.css`).
+- **Automated Testing & CI:** Includes 11 automated unit tests (`tests/app.test.js`) executed via `npm test` and integrated into GitHub Actions (`.github/workflows/test.yml`).
+- **Accessibility:** Built with WCAG AA compliance, semantic landmarks, ARIA live regions, and keyboard navigation support.
 
 ---
 
-## 🚀 How to Run Locally & Run Tests
-Because this app uses ES6 JavaScript modules (`type="module"`), run it via a local HTTP server rather than opening `index.html` directly via `file://`:
-
-1. Clone this repository and open a terminal inside the project folder.
-2. Start a lightweight local server using Python (or VS Code Live Server):
-   ```bash
-   python -m http.server 8000
-   ```
-3. Open **[http://localhost:8000](http://localhost:8000)** in your browser.
-4. *(Optional)* Enter a free Google Gemini API key from [Google AI Studio](https://google.com) for live AI generation, or click **Generate** immediately to run in Demo Simulation Mode.
-5. Run the automated unit test suite (requires Node.js 18+):
-   ```bash
-   node --test tests/app.test.js
-   ```
+## 🚀 Quick Start
+1. Start a local server: `python -m http.server 8000`
+2. Open **[http://localhost:8000](http://localhost:8000)** (optional: supply an API key from [Google AI Studio](https://google.com)).
+3. Run unit tests: `npm test`
